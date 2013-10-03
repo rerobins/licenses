@@ -1,12 +1,5 @@
 from django.db import models
 
-# Create your models here.
-# Description Implementation of a website using the Automaintenance library.
-#License Affero General Public License
-#Version 1.0
-#Website None
-#Source None
-
 
 class License(models.Model):
     name = models.CharField(max_length=100)
@@ -25,11 +18,17 @@ class License(models.Model):
 
 class LicensedSoftware(models.Model):
     name = models.CharField(max_length=100)
-    version = models.CharField(max_length=50)
-    source_url = models.URLField()
-    license = models.ForeignKey(License)
-    website_url = models.URLField(max_length=256)
-    description = models.TextField()
+    version = models.CharField(max_length=50, blank=True)
+    source_url = models.URLField(blank=True)
+    license = models.ForeignKey(License, blank=True)
+    website_url = models.URLField(max_length=256, blank=True)
+    description = models.TextField(blank=True)
+
+    def __unicode__(self):
+        """
+            Means of printing out basic information for this record.
+        """
+        return "Software: %s" % self.name
 
     class Meta:
         ordering = ['name']
