@@ -3,7 +3,7 @@ from django.db import models
 
 class License(models.Model):
     name = models.CharField(max_length=100)
-    url = models.URLField()
+    url = models.URLField(blank=True)
     text = models.TextField()
 
     def __unicode__(self):
