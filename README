@@ -1,6 +1,6 @@
 This project provides a simple means of maintaining all of the appropriate
 license information for each of the components developed.  It can be used to
-maintain a licenses page that can be used to display information required by
-the GPL/AGPL licenses.
+maintain a licenses page that will display information required by the GPL/AGPL
+licenses.
 
-It is released under BSD License.
+It is released under Free BSD License.
