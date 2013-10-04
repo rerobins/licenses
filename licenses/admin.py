@@ -1,5 +1,13 @@
 from django.contrib import admin
 from licenses.models import License, LicensedSoftware
+from django.conf import settings
+
+use_admin = False
+
+try:
+    use_admin = settings.LICENSE_ADMIN
+except AttributeError:
+    use_admin = False
 
 
 class LicenseAdmin(admin.ModelAdmin):
@@ -9,6 +17,7 @@ class LicenseAdmin(admin.ModelAdmin):
 class LicensedSoftwareAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(License, LicenseAdmin)
-admin.site.register(LicensedSoftware, LicensedSoftwareAdmin)
+if use_admin:
+    admin.site.register(License, LicenseAdmin)
+    admin.site.register(LicensedSoftware, LicensedSoftwareAdmin)
 
